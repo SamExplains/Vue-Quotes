@@ -1,18 +1,23 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>Welcome</p>
   </div>
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+  },
+  data: function () {
+    return {
+      quotes: ['Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, quidem!'],
+      maxQuotes: 10
+    }
+  },
 }
 </script>
 

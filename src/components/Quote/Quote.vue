@@ -8,6 +8,16 @@
     </div>
 </template>
 
+<style lang="scss">
+    .card {
+        transition: all ease-in-out .5s;
+        &:hover {
+            background: rgba(66, 185, 131, 0.51);
+        }
+
+    }
+</style>
+
 <script>
     export default {
     };

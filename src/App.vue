@@ -1,8 +1,13 @@
 <template>
   <div class="container" id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <p>Welcome</p>
-    <quote-grid :quotes="quotes"></quote-grid>
+    <div class="row">
+      <div class="col-6 mx-auto">
+        <div class="alert alert-info">Tap Quote to delete</div>
+      </div>
+    </div>
+
+    <new-quote @quoteAdded="newQuote"></new-quote>
+    <quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></quote-grid>
   </div>
 
 </template>
@@ -10,9 +15,11 @@
 <script>
 
 import QuoteGrid from "./components/QuoteGrid/QuoteGrid";
+import NewQuote from "./components/NewQuote/NewQuote";
 export default {
   name: 'app',
   components: {
+    NewQuote,
     QuoteGrid
   },
   data: function () {
@@ -24,6 +31,14 @@ export default {
       maxQuotes: 10
     }
   },
+  methods: {
+    newQuote(quote) {
+      this.quotes.push(quote);
+    },
+    deleteQuote(index) { // VueJS passes arguement
+      this.quotes.splice(index, 1);
+    }
+  }
 }
 </script>
 

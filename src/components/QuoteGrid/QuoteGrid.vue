@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <quote v-for="(quote, index) in quotes">
+        <quote v-for="(quote, index) in quotes" @click.native="deleteQuote(index)">
             <p :id="index">{{ quote.substr(0, 50) + '...' }}</p>
         </quote>
     </div>
@@ -16,5 +16,10 @@
                 required: true
             }
         },
+        methods: {
+            deleteQuote(index) {
+                this.$emit('quoteDeleted', index);
+            }
+        }
     };
 </script>
